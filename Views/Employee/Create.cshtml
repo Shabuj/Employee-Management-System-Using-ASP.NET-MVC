@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EmployeeManagementApp.Models.Department>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+<form method="post">
+    <div class="form-group">
+        <input type="text" name="Name" placeholder="Enter Employee name" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="Designation" placeholder="Enter Employee Designation" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="text" name="NID" placeholder="Enter Employee NID" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="date" name="JoiningDate" placeholder="Enter Employee Joining Date" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <select class="form-control" name="DepartmentId">
+            <option value="0">-Select-</option>
+            @foreach (var departments in Model)
+            {
+                <option value="@departments.DepartmentId">@departments.Name</option>
+            }
+
+        </select>
+
+    </div>
+    <div class="form-group">
+        <select class="form-control" name="BloodGroup">
+            <option value="0">-Select-</option>
+            <option value="A+">A+</option>
+            <option value="B+">B+</option>
+            <option value="AB+">AB+</option>
+            <option value="O+">O+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B-</option>
+            <option value="O-">O-</option>
+        </select>
+
+    </div>
+
+    <input type="submit" class="btn btn-success" />
+
+</form>
+@{
+    if (ViewBag.IsSaved=="SuccessFull")
+    {
+       <h4>Employee inserted Successfully</h4>
+    }
+   
+}
+
+

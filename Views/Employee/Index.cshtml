@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EmployeeManagementApp.ViewModels.EmployeeDepartmentViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 1;
+}
+
+<h2>Employee Information </h2>
+<table class="table">
+    <tr>
+        <td> Sr.No</td>
+        <td> Employee Name</td>
+        <td> Designation</td>
+        <td> National ID</td>
+        <td> Joining Date</td>
+        <td> Code</td>
+        <td> Department</td>
+        <td> Blood Group</td>
+
+    </tr>
+    @foreach (var employee in Model)
+    {
+        <tr>
+
+            <td> @i</td>
+            <td> @employee.EmployeeName</td>
+            <td> @employee.Designation</td>
+            <td> @employee.NID</td>
+            <td> @employee.JoiningDate</td>
+            <td> @employee.Code</td>
+            <td> @employee.DepartmentName</td>
+            <td> @employee.BloodGroup</td>
+       
+            
+        </tr>
+        i++;
+    }
+</table>
+
